@@ -2,4 +2,9 @@
     <string name="app_name">Shoe Store</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="the_shoe_store">The Shoe Store</string>
+    <string name="image_of_a_shoe">image of a shoe</string>
+    <string name="type_your_email">Email</string>
+    <string name="type_your_password">Password</string>
+    <string name="login">login</string>
 </resources>
