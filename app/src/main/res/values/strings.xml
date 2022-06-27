@@ -6,5 +6,7 @@
     <string name="image_of_a_shoe">image of a shoe</string>
     <string name="type_your_email">Email</string>
     <string name="type_your_password">Password</string>
+    <string name="invalid_email">Invalid Email, please use a valid Email.</string>
+    <string name="invalid_password">Please, insert your password.</string>
     <string name="login">login</string>
 </resources>
