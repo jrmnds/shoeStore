@@ -9,4 +9,5 @@
     <string name="invalid_email">Invalid Email, please use a valid Email.</string>
     <string name="invalid_password">Please, insert your password.</string>
     <string name="login">login</string>
+    <string name="create_account">Create \n Account</string>
 </resources>
