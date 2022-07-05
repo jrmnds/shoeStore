@@ -12,6 +12,8 @@ class LoginViewModel : ViewModel() {
     private val _email = MutableLiveData<String>()
     private val _passWord = MutableLiveData<String>()
 
+    private val _shouldCallNextPage = MutableLiveData<Boolean>()
+
     private val _isEmailValid = MutableLiveData<Boolean>()
     private val _isPasswordNotEmpty = MutableLiveData<Boolean>()
 
@@ -22,6 +24,8 @@ class LoginViewModel : ViewModel() {
     val isPasswordNotEmpty: LiveData<Boolean>
         get() = _isPasswordNotEmpty
 
+    val shouldCallNextPage: LiveData<Boolean>
+        get() = _shouldCallNextPage
 
     private val _passwordPattern = Pattern.compile(
         ".{8,}"
@@ -40,6 +44,12 @@ class LoginViewModel : ViewModel() {
     private fun validatePassword() {
         _isPasswordNotEmpty.value = _passWord.value!!.isNotEmpty() &&
                 _passwordPattern.matcher(_passWord.value!!).matches()
+    }
+
+    fun shouldGoToTheNextPage(){
+        if(isEmailValid.value == true && isPasswordNotEmpty.value == true){
+            _shouldCallNextPage.value = true
+        }
     }
 
     fun validateFields() {

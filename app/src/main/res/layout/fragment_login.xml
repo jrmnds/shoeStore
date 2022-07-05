@@ -4,13 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.jrmnds.shoestore.login.presentation.LoginFragment">
 
-    <data>
-
-        <variable
-            name="loginViewModel"
-            type="com.jrmnds.shoestore.login.presentation.LoginViewModel" />
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
