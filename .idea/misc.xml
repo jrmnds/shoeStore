@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../shoeStore/app/src/main/res/layout/fragment_instructions.xml" value="0.1" />
         <entry key="../shoeStore/app/src/main/res/layout/fragment_login.xml" value="0.19610507246376813" />
         <entry key="../shoeStore/app/src/main/res/layout/fragment_welcome.xml" value="0.2730795597684556" />
       </map>
