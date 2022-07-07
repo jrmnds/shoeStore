@@ -5,9 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.jrmnds.shoestore.R
 import com.jrmnds.shoestore.databinding.FragmentLoginBinding
 import com.jrmnds.shoestore.login.model.LoginModel
@@ -36,7 +36,6 @@ class LoginFragment : Fragment() {
             container,
             false
         )
-        loginBinding.loginViewModel = loginViewModel
         loginBinding.lifecycleOwner = this
     }
 
@@ -56,18 +55,36 @@ class LoginFragment : Fragment() {
             )
             loginViewModel.validateFields()
         }
+
+        loginViewModel.shouldCallNextPage.observe(viewLifecycleOwner){ shouldCallNextPage ->
+            if(shouldCallNextPage){
+                findNavController().navigate(LoginFragmentDirections.actionLoginFragment3ToWelcomeFragment())
+            }
+        }
     }
 
     private fun observeValidations(){
         loginViewModel.isEmailValid.observe(viewLifecycleOwner) { isValid ->
-            if (!isValid) {
-                Toast.makeText(activity, R.string.invalid_email, Toast.LENGTH_SHORT).show()
+            when {
+                !isValid -> {
+                    loginBinding.emailId.error = getString(R.string.invalid_email)
+                    loginBinding.emailId.requestFocus()
+                }
+                else -> {
+                    loginViewModel.shouldGoToTheNextPage()
+                }
             }
         }
 
         loginViewModel.isPasswordNotEmpty.observe(viewLifecycleOwner) { isPasswordValid ->
-            if (!isPasswordValid) {
-                Toast.makeText(activity, R.string.invalid_password, Toast.LENGTH_SHORT).show()
+            when {
+                !isPasswordValid -> {
+                    loginBinding.passwordId.error = getString(R.string.invalid_password)
+                    loginBinding.passwordId.requestFocus()
+                }
+                else -> {
+                    loginViewModel.shouldGoToTheNextPage()
+                }
             }
         }
     }

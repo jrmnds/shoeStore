@@ -7,7 +7,12 @@
     <string name="type_your_email">Email</string>
     <string name="type_your_password">Password</string>
     <string name="invalid_email">Invalid Email, please use a valid Email.</string>
-    <string name="invalid_password">Please, insert your password.</string>
     <string name="login">login</string>
     <string name="create_account">Create \n Account</string>
+    <string name="welcome_introduction">Hi, welcome to the Shoes Store.\n \n Here you can check every shoe you might want, even add any other shoe that you are missing, navigate and find out more.</string>
+    <string name="welcome_finishing">Hope you enjoy our app.</string>
+    <string name="instructions_one">In the shoe store, you have access to the details of each shoe, such as: Size, company where the shoe was made, name of the shoe, description and images of the shoe. \n Here you can also add any other shoes you like.</string>
+    <string name="instructions_second">On the first page you will find a list of the shoes you already have, so you might be asking yourself: \n How can I add a new shoe?, There will be a button that will take you to another screen and there you can fill in all the information that need about the new shoe that will be included. \n \n So lets start?</string>
+    <string name="next">Next</string>
+    <string name="invalid_password">Please, insert your password.</string>
 </resources>
