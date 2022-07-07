@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -68,7 +67,8 @@ class LoginFragment : Fragment() {
         loginViewModel.isEmailValid.observe(viewLifecycleOwner) { isValid ->
             when {
                 !isValid -> {
-                    Toast.makeText(activity, R.string.invalid_email, Toast.LENGTH_SHORT).show()
+                    loginBinding.emailId.error = getString(R.string.invalid_email)
+                    loginBinding.emailId.requestFocus()
                 }
                 else -> {
                     loginViewModel.shouldGoToTheNextPage()
@@ -79,7 +79,8 @@ class LoginFragment : Fragment() {
         loginViewModel.isPasswordNotEmpty.observe(viewLifecycleOwner) { isPasswordValid ->
             when {
                 !isPasswordValid -> {
-                    Toast.makeText(activity, R.string.invalid_password, Toast.LENGTH_SHORT).show()
+                    loginBinding.passwordId.error = getString(R.string.invalid_password)
+                    loginBinding.passwordId.requestFocus()
                 }
                 else -> {
                     loginViewModel.shouldGoToTheNextPage()

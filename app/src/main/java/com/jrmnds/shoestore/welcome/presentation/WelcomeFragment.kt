@@ -1,4 +1,4 @@
-package com.jrmnds.shoestore.welcome
+package com.jrmnds.shoestore.welcome.presentation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -26,7 +26,7 @@ class WelcomeFragment : Fragment() {
 
     private fun buttonListener() {
         welcomeBinding.nextButtonId.setOnClickListener {
-            findNavController()
+            findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToInstructionsFragment())
         }
     }
 
