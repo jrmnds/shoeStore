@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="@dimen/space_button"
+    app:contentPadding="5dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardCornerRadius="20dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/shoe_image_id"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/pairshoes"
+            android:contentDescription="@string/image_of_a_shoe" />
+
+        <TextView
+            android:id="@+id/size_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/size"
+            android:textSize="16sp"
+            app:drawableStartCompat="@drawable/ic_baseline_size_in_full_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/shoe_image_id" />
+
+        <TextView
+            android:id="@+id/size_id_information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textSize="16sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/size_id"
+            app:layout_constraintStart_toEndOf="@+id/size_id"
+            tools:text="32" />
+
+        <TextView
+            android:id="@+id/name_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:drawablePadding="10dp"
+            android:text="@string/name"
+            android:textSize="16sp"
+            app:drawableStartCompat="@drawable/ic_baseline_name_snippet_24"
+            app:layout_constraintBaseline_toBaselineOf="@+id/size_id"
+            app:layout_constraintStart_toEndOf="@+id/size_id_information" />
+
+        <TextView
+            android:id="@+id/name_id_information"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:maxLines="2"
+            android:textSize="16sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/size_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.066"
+            app:layout_constraintStart_toEndOf="@+id/name_id"
+            tools:text="Master Nike 26" />
+
+        <TextView
+            android:id="@+id/company_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+            android:drawablePadding="10dp"
+            android:text="@string/company"
+            android:textSize="16sp"
+            app:drawableStartCompat="@drawable/ic_baseline_card_travel_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/size_id" />
+
+        <TextView
+            android:id="@+id/company_id_information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textSize="16sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/company_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.021"
+            app:layout_constraintStart_toEndOf="@+id/company_id"
+            tools:text="Nike" />
+
+        <TextView
+            android:id="@+id/description_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="32dp"
+            android:drawablePadding="10dp"
+            android:text="@string/description"
+            app:drawableStartCompat="@drawable/ic_baseline_notes_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/company_id_information"
+            app:layout_constraintTop_toBottomOf="@+id/name_id_information" />
+
+        <TextView
+            android:id="@+id/description_id_information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.515"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_id"
+            tools:text="@string/instructions_second" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

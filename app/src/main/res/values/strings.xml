@@ -15,4 +15,8 @@
     <string name="instructions_second">On the first page you will find a list of the shoes you already have, so you might be asking yourself: \n How can I add a new shoe?, There will be a button that will take you to another screen and there you can fill in all the information that need about the new shoe that will be included. \n \n So lets start?</string>
     <string name="next">Next</string>
     <string name="invalid_password">Please, insert your password.</string>
+    <string name="size">Size:</string>
+    <string name="name">Name:</string>
+    <string name="company">Company:</string>
+    <string name="description">Description:</string>
 </resources>
