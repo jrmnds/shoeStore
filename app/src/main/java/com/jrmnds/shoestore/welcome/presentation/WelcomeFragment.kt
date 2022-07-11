@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.jrmnds.shoestore.R
@@ -37,5 +38,7 @@ class WelcomeFragment : Fragment() {
             container,
             false
         )
+        welcomeBinding.lifecycleOwner = this
+        (activity as AppCompatActivity).supportActionBar?.title = "Welcome"
     }
 }

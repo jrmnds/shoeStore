@@ -35,5 +35,12 @@
         android:id="@+id/shoesListFragment"
         android:name="com.jrmnds.shoestore.shop.presentation.ShoesListFragment"
         android:label="fragment_shoes_list"
-        tools:layout="@layout/fragment_shoes_list" />
+        tools:layout="@layout/fragment_shoes_list" >
+        <action
+            android:id="@+id/action_shoesListFragment_to_loginFragment32"
+            app:destination="@id/loginFragment3"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/navigation"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

@@ -19,4 +19,7 @@
     <string name="name">Name:</string>
     <string name="company">Company:</string>
     <string name="description">Description:</string>
+    <string name="floating_action_button">Floating Action Button</string>
+    <string name="scroll_view">scroll view</string>
+    <string name="logout">Logout</string>
 </resources>
