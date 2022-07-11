@@ -32,4 +32,8 @@
     <string name="type_a_description">Type a Description</string>
     <string name="save">Save</string>
     <string name="shoes_image_preview">Shoes Image Preview</string>
+    <string name="shoe_name_not_empty">Shoe name can\'t be Empty, please add a name</string>
+    <string name="shoes_company_not_empty">Shoe\'s Company can\'t be empty</string>
+    <string name="shoe_size_not_empty">Shoe size can\'t be empty</string>
+    <string name="shoe_description_not_empty">Shoe description can\'t be empty</string>
 </resources>
