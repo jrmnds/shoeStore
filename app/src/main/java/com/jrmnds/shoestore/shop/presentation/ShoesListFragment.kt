@@ -67,6 +67,10 @@ class ShoesListFragment : Fragment() {
                 setShoeToCardList(shoe)
             }
         }
+
+        shoesListBinding.floatingActionButtonId.setOnClickListener {
+            findNavController().navigate(ShoesListFragmentDirections.actionShoesListFragmentToShoeListDetailFragment())
+        }
     }
 
     private fun setShoeToCardList(shoeData: Shoe) {

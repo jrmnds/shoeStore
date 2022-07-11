@@ -22,4 +22,14 @@
     <string name="floating_action_button">Floating Action Button</string>
     <string name="scroll_view">scroll view</string>
     <string name="logout">Logout</string>
+    <string name="add_a_image">Add a Image:</string>
+    <string name="image">Image</string>
+    <string name="shoe_name">Shoe Name:</string>
+    <string name="type_the_shoe_name">Type the shoe name</string>
+    <string name="shoes_company">Shoes Company:</string>
+    <string name="type_the_shoe_s_company">type the shoe\'s company</string>
+    <string name="type_the_size">Type the Size</string>
+    <string name="type_a_description">Type a Description</string>
+    <string name="save">Save</string>
+    <string name="shoes_image_preview">Shoes Image Preview</string>
 </resources>
