@@ -7,4 +7,29 @@
         <item name="android:textAlignment">textStart</item>
         <item name="android:textSize">20sp</item>
     </style>
+
+    <style name="text_infor_detail_style">
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="label_form_detail_style">
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:ems">10</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:textColorHint">@color/text_hint_color</item>
+    </style>
+
+    <style name="main_card_style">
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+    </style>
 </resources>

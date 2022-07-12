@@ -12,7 +12,7 @@ import com.jrmnds.shoestore.utils.GlideHelper.convertImageToBase64
 class ShoesListViewModel : ViewModel() {
 
     private lateinit var shoe: Shoe
-    private lateinit var shoesListData: ShoesList
+    private var shoesListData: ShoesList = ShoesList(mutableListOf())
 
 
     var imageShoe: String = ""
@@ -62,11 +62,11 @@ class ShoesListViewModel : ViewModel() {
         _notNullshoeCompany.value = shoeCompany
         _notNullshoeSize.value = shoeSize
         _notNullshoeDescription.value = shoeDescription
+        _notNullShoeImage.value = imageShoe
         validateShoesField()
     }
 
     private fun addShoeToShoeList() {
-        shoesListData = ShoesList(mutableListOf())
         createShoeObject()
         shoesListData.shoesList.add(shoe)
         _shoeList.value = shoesListData
@@ -85,7 +85,8 @@ class ShoesListViewModel : ViewModel() {
 
                 addShoeToShoeList()
                 _shouldGoToTheNextPage.value = true
-                clearFields()
+                resetPageLogic()
+                clearImageInput()
             }
             else -> {
                 _shouldGoToTheNextPage.value = false
@@ -94,14 +95,13 @@ class ShoesListViewModel : ViewModel() {
     }
 
 
-    private fun clearFields() {
-        shoeName = ""
-        shoeCompany = ""
-        shoeDescription = ""
-        shoeSize = ""
-        imageShoe = ""
+    private fun resetPageLogic() {
         _shouldGoToTheNextPage.value = false
         _changeImageStateLabel.value = true
+    }
+
+    private fun clearImageInput(){
+        imageShoe = ""
     }
 
     fun setImage(data: Uri, contentResolver: ContentResolver) {

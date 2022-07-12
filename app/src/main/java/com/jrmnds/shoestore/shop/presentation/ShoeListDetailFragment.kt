@@ -114,10 +114,19 @@ class ShoeListDetailFragment : Fragment() {
         shoesListViewModel.shouldGoToTheNextPage.observe(viewLifecycleOwner) { shouldGoToAnotherPage ->
             when {
                 shouldGoToAnotherPage -> {
+                    clearFields()
                     findNavController().navigate(ShoeListDetailFragmentDirections.actionShoeListDetailFragmentToShoesListFragment())
                 }
             }
         }
+    }
+
+    private fun clearFields() {
+        bindingShoeListDetail.shoesImagePreviewId.visibility = View.GONE
+        bindingShoeListDetail.shoeNameLabelId.text.clear()
+        bindingShoeListDetail.shoesCompanyLabelId.text.clear()
+        bindingShoeListDetail.descriptionLabelId.text.clear()
+        bindingShoeListDetail.sizeLabelId.text.clear()
     }
 
     private fun getAccess() {
@@ -138,4 +147,6 @@ class ShoeListDetailFragment : Fragment() {
             loadImage.launch("image/*")
         }
     }
+
+
 }
