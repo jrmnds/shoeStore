@@ -17,10 +17,8 @@ This project will consist of five screens. You don't have to create a shoe store
 
 ## Projects Screens
 
-![Login Screen](screenshots/login_image.jpeg)
-![Welcome Screen](screenshots/welcome_image.jpeg)
-![Instructions Screen](screenshots/instructions_image.jpeg)
-![Shoe List Empty](screenshots/shoe_list_empty.jpeg)
-![Shoe Detail Page](screenshots/shoe_detail_image.jpeg)
-![Shoe List](screenshots/shoe_list_image.jpeg)
+![Login Screen](screenshots/login_image.jpeg) | ![Welcome Screen](screenshots/welcome_image.jpeg)
+![Instructions Screen](screenshots/instructions_image.jpeg) | ![Shoe List Empty](screenshots/shoe_list_empty.jpeg)
+![Shoe Detail Page](screenshots/shoe_detail_image.jpeg) | ![Shoe List](screenshots/shoe_list_image.jpeg)
+
 
