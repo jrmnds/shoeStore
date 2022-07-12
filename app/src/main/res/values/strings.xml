@@ -36,4 +36,5 @@
     <string name="shoes_company_not_empty">Shoe\'s Company can\'t be empty</string>
     <string name="shoe_size_not_empty">Shoe size can\'t be empty</string>
     <string name="shoe_description_not_empty">Shoe description can\'t be empty</string>
+    <string name="shoe_image_not_null">Shoe Image can\'t be empty</string>
 </resources>

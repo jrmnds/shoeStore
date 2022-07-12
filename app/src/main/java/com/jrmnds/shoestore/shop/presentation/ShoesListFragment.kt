@@ -76,7 +76,7 @@ class ShoesListFragment : Fragment() {
     private fun setShoeToCardList(shoeData: Shoe) {
         shoeCardListItem.apply {
             GlideHelper.converteFromBase64ToImage(
-                Base64ExampleImage.base64TestImage, this@ShoesListFragment.context!!,
+                shoeData.image, this@ShoesListFragment.context!!,
                 R.drawable.pairshoes, shoeImageId
             )
             sizeIdInformation.text = shoeData.size.toString()

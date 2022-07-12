@@ -1,16 +1,19 @@
 package com.jrmnds.shoestore.shop.presentation
 
+import android.content.ContentResolver
+import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.jrmnds.shoestore.shop.model.Shoe
 import com.jrmnds.shoestore.shop.model.ShoesList
-import com.jrmnds.shoestore.utils.Base64ExampleImage
+import com.jrmnds.shoestore.utils.GlideHelper.convertImageToBase64
 
-class ShoesListViewModel: ViewModel() {
+class ShoesListViewModel : ViewModel() {
 
     private lateinit var shoe: Shoe
     private lateinit var shoesListData: ShoesList
+
 
     var imageShoe: String = ""
     var shoeName: String = ""
@@ -24,6 +27,7 @@ class ShoesListViewModel: ViewModel() {
     private var _notNullshoeDescription = MutableLiveData<String>()
     private var _notNullshoeSize = MutableLiveData<String>()
     private var _notNullShoeImage = MutableLiveData<String>()
+    private var _changeImageStateLabel = MutableLiveData<Boolean>()
 
     private val _shouldGoToTheNextPage = MutableLiveData<Boolean>()
 
@@ -49,56 +53,59 @@ class ShoesListViewModel: ViewModel() {
     val shouldGoToTheNextPage: LiveData<Boolean>
         get() = _shouldGoToTheNextPage
 
+    val changeImageStateLabel: LiveData<Boolean>
+        get() = _changeImageStateLabel
 
-    init {
-        createShoeObjectsToList()
-        imageShoe = Base64ExampleImage.base64TestImage
-    }
 
-    private fun createShoeObjectsToList(){
-        shoesListData = ShoesList(mutableListOf())
-        shoe = Shoe("Nike DX 1", 24.5, "Nike", "Just a shoe for a Test", Base64ExampleImage.base64TestImage)
-        shoesListData.shoesList.add(shoe)
-        shoe = Shoe("Nike DX 1", 24.5, "Nike", "Just a shoe for a Test", Base64ExampleImage.base64TestImage)
-        shoesListData.shoesList.add(shoe)
-        shoe = Shoe("Nike DX 1", 24.5, "Nike", "Just a shoe for a Test", Base64ExampleImage.base64TestImage)
-        shoesListData.shoesList.add(shoe)
-        shoe = Shoe("Nike DX 1", 24.5, "Nike", "Just a shoe for a Test", Base64ExampleImage.base64TestImage)
-        shoesListData.shoesList.add(shoe)
-        _shoeList.value = shoesListData
-    }
-
-    fun setShoeData(){
+    fun setShoeData() {
         _notNullNameShoe.value = shoeName
         _notNullshoeCompany.value = shoeCompany
         _notNullshoeSize.value = shoeSize
         _notNullshoeDescription.value = shoeDescription
-        _notNullShoeImage.value = imageShoe
-        addShoeToShoeList(createShoeObject())
         validateShoesField()
     }
 
-    private fun addShoeToShoeList(shoe: Shoe) {
+    private fun addShoeToShoeList() {
+        shoesListData = ShoesList(mutableListOf())
+        createShoeObject()
         shoesListData.shoesList.add(shoe)
         _shoeList.value = shoesListData
     }
 
-    private fun createShoeObject() : Shoe {
-      return shoe.apply {
-            name = notNullNameShoe.value.toString()
-            company = notNullshoeCompany.value.toString()
-            description = notNullshoeDescription.value.toString()
-            size = notNullshoeSize.value!!.toDouble()
-            image = imageShoe
+    private fun createShoeObject(){
+        shoe = Shoe(notNullNameShoe.value!!, notNullshoeSize.value!!.toDouble(),
+        notNullshoeCompany.value!!, notNullshoeDescription.value!!, notNullShoeImage.value!!)
+    }
+
+    private fun validateShoesField() {
+        when {
+            (_notNullNameShoe.value!!.isNotEmpty() && _notNullshoeCompany.value!!.isNotEmpty()
+                    && _notNullshoeSize.value!!.isNotEmpty() && _notNullshoeDescription.value!!.isNotEmpty() &&
+                    _notNullShoeImage.value!!.isNotEmpty()) -> {
+
+                addShoeToShoeList()
+                _shouldGoToTheNextPage.value = true
+                clearFields()
+            }
+            else -> {
+                _shouldGoToTheNextPage.value = false
+            }
         }
     }
 
-    private fun validateShoesField(){
-        _shouldGoToTheNextPage.value = (_notNullNameShoe.value!!.isNotEmpty() && _notNullshoeCompany.value!!.isNotEmpty()
-                && _notNullshoeSize.value!!.isNotEmpty() && _notNullshoeDescription.value!!.isNotEmpty() &&
-                _notNullShoeImage.value!!.isNotEmpty())
+
+    private fun clearFields() {
+        shoeName = ""
+        shoeCompany = ""
+        shoeDescription = ""
+        shoeSize = ""
+        imageShoe = ""
+        _shouldGoToTheNextPage.value = false
+        _changeImageStateLabel.value = true
     }
 
-
-
+    fun setImage(data: Uri, contentResolver: ContentResolver) {
+        imageShoe = convertImageToBase64(data, contentResolver)
+        _notNullShoeImage.value = imageShoe
+    }
 }
