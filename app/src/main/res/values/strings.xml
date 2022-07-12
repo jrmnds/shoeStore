@@ -1,3 +1,40 @@
 <resources>
     <string name="app_name">Shoe Store</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="the_shoe_store">The Shoe Store</string>
+    <string name="image_of_a_shoe">image of a shoe</string>
+    <string name="type_your_email">Email</string>
+    <string name="type_your_password">Password</string>
+    <string name="invalid_email">Invalid Email, please use a valid Email.</string>
+    <string name="login">login</string>
+    <string name="create_account">Create \n Account</string>
+    <string name="welcome_introduction">Hi, welcome to the Shoes Store.\n \n Here you can check every shoe you might want, even add any other shoe that you are missing, navigate and find out more.</string>
+    <string name="welcome_finishing">Hope you enjoy our app.</string>
+    <string name="instructions_one">In the shoe store, you have access to the details of each shoe, such as: Size, company where the shoe was made, name of the shoe, description and images of the shoe. \n Here you can also add any other shoes you like.</string>
+    <string name="instructions_second">On the first page you will find a list of the shoes you already have, so you might be asking yourself: \n How can I add a new shoe?, There will be a button that will take you to another screen and there you can fill in all the information that need about the new shoe that will be included. \n \n So lets start?</string>
+    <string name="next">Next</string>
+    <string name="invalid_password">Please, insert your password.</string>
+    <string name="size">Size:</string>
+    <string name="name">Name:</string>
+    <string name="company">Company:</string>
+    <string name="description">Description:</string>
+    <string name="floating_action_button">Floating Action Button</string>
+    <string name="scroll_view">scroll view</string>
+    <string name="logout">Logout</string>
+    <string name="add_a_image">Add a Image:</string>
+    <string name="image">Image</string>
+    <string name="shoe_name">Shoe Name:</string>
+    <string name="type_the_shoe_name">Type the shoe name</string>
+    <string name="shoes_company">Shoes Company:</string>
+    <string name="type_the_shoe_s_company">type the shoe\'s company</string>
+    <string name="type_the_size">Type the Size</string>
+    <string name="type_a_description">Type a Description</string>
+    <string name="save">Save</string>
+    <string name="shoes_image_preview">Shoes Image Preview</string>
+    <string name="shoe_name_not_empty">Shoe name can\'t be Empty, please add a name</string>
+    <string name="shoes_company_not_empty">Shoe\'s Company can\'t be empty</string>
+    <string name="shoe_size_not_empty">Shoe size can\'t be empty</string>
+    <string name="shoe_description_not_empty">Shoe description can\'t be empty</string>
+    <string name="shoe_image_not_null">Shoe Image can\'t be empty</string>
 </resources>

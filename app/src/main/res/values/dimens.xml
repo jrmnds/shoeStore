@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="space_beetwen">32dp</dimen>
+    <dimen name="space_beetwen_string">32dp</dimen>
+    <dimen name="space_button">50dp</dimen>
+    <dimen name="text_start_space">5dp</dimen>
+</resources>
