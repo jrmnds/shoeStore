@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -37,6 +38,7 @@ class LoginFragment : Fragment() {
             false
         )
         loginBinding.lifecycleOwner = this
+        (activity as AppCompatActivity).supportActionBar?.title = "Login"
     }
 
     private fun configureViewModel() {
@@ -47,12 +49,12 @@ class LoginFragment : Fragment() {
 
     private fun observeFields() {
         loginBinding.loginButton.setOnClickListener {
-            loginViewModel.setData(
-                LoginModel(
-                    loginBinding.emailId.text.toString(),
-                    loginBinding.passwordId.text.toString()
-                )
-            )
+            setLoginData()
+            loginViewModel.validateFields()
+        }
+
+        loginBinding.createAccountButtonId.setOnClickListener {
+            setLoginData()
             loginViewModel.validateFields()
         }
 
@@ -61,6 +63,15 @@ class LoginFragment : Fragment() {
                 findNavController().navigate(LoginFragmentDirections.actionLoginFragment3ToWelcomeFragment())
             }
         }
+    }
+
+    private fun setLoginData() {
+        loginViewModel.setData(
+            LoginModel(
+                loginBinding.emailId.text.toString(),
+                loginBinding.passwordId.text.toString()
+            )
+        )
     }
 
     private fun observeValidations(){

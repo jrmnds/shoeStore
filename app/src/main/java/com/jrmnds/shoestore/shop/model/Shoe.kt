@@ -5,5 +5,5 @@ data class Shoe(
     var size: Double,
     var company: String,
     var description: String,
-    var images: MutableList<String>
+    var image: String
 )
