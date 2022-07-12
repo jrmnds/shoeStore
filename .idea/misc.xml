@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../shoeStore/app/src/main/res/drawable/ic_baseline_size_in_full_24.xml" value="0.2085" />
+        <entry key="../shoeStore/app/src/main/res/drawable/ic_new_icon_launcher_background.xml" value="0.2085" />
         <entry key="../shoeStore/app/src/main/res/drawable/shape.xml" value="0.2085" />
         <entry key="../shoeStore/app/src/main/res/layout/activity_main.xml" value="0.3098958333333333" />
         <entry key="../shoeStore/app/src/main/res/layout/fragment_instructions.xml" value="0.27370452880859375" />
