@@ -11,6 +11,10 @@
             type="com.jrmnds.shoestore.shop.presentation.ShoesListViewModel" />
     </data>
 
+<!--    Constrait Layout was chosen here because, i have more components, like imageView that i'm making invisible while the-->
+<!--    user didn't pick a image of his gallery. Constraint Layout gives me more-->
+<!--    possibilities to build my screen.-->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -18,7 +22,7 @@
         <ImageView
             android:id="@+id/shoes_image_preview_id"
             android:layout_width="wrap_content"
-            android:layout_height="150dp"
+            android:layout_height="@dimen/dimen_150dp"
             android:contentDescription="@string/shoes_image_preview"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +34,7 @@
             style="@style/text_infor_detail_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawablePadding="5dp"
+            android:drawablePadding="@dimen/dimen_5dp"
             android:text="@string/add_a_image"
             app:drawableStartCompat="@drawable/ic_baseline_image_24"
             app:layout_constraintStart_toStartOf="parent"
@@ -151,7 +155,7 @@
             android:id="@+id/save_button_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/dimen_16dp"
             android:fontFamily="@font/roboto"
             android:onClick="@{() -> shoeDetailsViewModel.setShoeData()}"
             android:text="@string/save"

@@ -15,7 +15,7 @@ import com.jrmnds.shoestore.login.model.LoginModel
 
 class LoginFragment : Fragment() {
 
-    private lateinit var loginBinding: FragmentLoginBinding
+    private lateinit var binding: FragmentLoginBinding
     private lateinit var loginViewModel: LoginViewModel
     private lateinit var loginViewModelFactory: LoginViewModelFactory
 
@@ -27,17 +27,17 @@ class LoginFragment : Fragment() {
         setBinders(inflater, container)
         observeValidations()
         observeFields()
-        return loginBinding.root
+        return binding.root
     }
 
     private fun setBinders(inflater: LayoutInflater, container: ViewGroup?) {
-        loginBinding = DataBindingUtil.inflate(
+        binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_login,
             container,
             false
         )
-        loginBinding.lifecycleOwner = this
+        binding.lifecycleOwner = this
         (activity as AppCompatActivity).supportActionBar?.title = "Login"
     }
 
@@ -48,12 +48,12 @@ class LoginFragment : Fragment() {
 
 
     private fun observeFields() {
-        loginBinding.loginButton.setOnClickListener {
+        binding.loginButton.setOnClickListener {
             setLoginData()
             loginViewModel.validateFields()
         }
 
-        loginBinding.createAccountButtonId.setOnClickListener {
+        binding.createAccountButtonId.setOnClickListener {
             setLoginData()
             loginViewModel.validateFields()
         }
@@ -68,8 +68,8 @@ class LoginFragment : Fragment() {
     private fun setLoginData() {
         loginViewModel.setData(
             LoginModel(
-                loginBinding.emailId.text.toString(),
-                loginBinding.passwordId.text.toString()
+                binding.emailId.text.toString(),
+                binding.passwordId.text.toString()
             )
         )
     }
@@ -78,8 +78,8 @@ class LoginFragment : Fragment() {
         loginViewModel.isEmailValid.observe(viewLifecycleOwner) { isValid ->
             when {
                 !isValid -> {
-                    loginBinding.emailId.error = getString(R.string.invalid_email)
-                    loginBinding.emailId.requestFocus()
+                    binding.emailId.error = getString(R.string.invalid_email)
+                    binding.emailId.requestFocus()
                 }
                 else -> {
                     loginViewModel.shouldGoToTheNextPage()
@@ -90,8 +90,8 @@ class LoginFragment : Fragment() {
         loginViewModel.isPasswordNotEmpty.observe(viewLifecycleOwner) { isPasswordValid ->
             when {
                 !isPasswordValid -> {
-                    loginBinding.passwordId.error = getString(R.string.invalid_password)
-                    loginBinding.passwordId.requestFocus()
+                    binding.passwordId.error = getString(R.string.invalid_password)
+                    binding.passwordId.requestFocus()
                 }
                 else -> {
                     loginViewModel.shouldGoToTheNextPage()

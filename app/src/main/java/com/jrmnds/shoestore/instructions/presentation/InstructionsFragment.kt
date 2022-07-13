@@ -13,7 +13,7 @@ import com.jrmnds.shoestore.databinding.FragmentInstructionsBinding
 
 class InstructionsFragment : Fragment() {
 
-    private lateinit var instructionsBinding: FragmentInstructionsBinding
+    private lateinit var binding: FragmentInstructionsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,23 +21,23 @@ class InstructionsFragment : Fragment() {
     ): View{
         setBinders(inflater, container)
         buttonListener()
-        return instructionsBinding.root
+        return binding.root
     }
 
     private fun buttonListener() {
-        instructionsBinding.buttonNextId.setOnClickListener {
+        binding.buttonNextId.setOnClickListener {
             findNavController().navigate(InstructionsFragmentDirections.actionInstructionsFragmentToShoesListFragment())
         }
     }
 
     private fun setBinders(inflater: LayoutInflater, container: ViewGroup?) {
-        instructionsBinding = DataBindingUtil.inflate(
+        binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_instructions,
             container,
             false
         )
-        instructionsBinding.lifecycleOwner = this
+        binding.lifecycleOwner = this
         (activity as AppCompatActivity).supportActionBar?.title = "Instructions"
     }
 }

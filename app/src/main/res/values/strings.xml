@@ -37,4 +37,9 @@
     <string name="shoe_size_not_empty">Shoe size can\'t be empty</string>
     <string name="shoe_description_not_empty">Shoe description can\'t be empty</string>
     <string name="shoe_image_not_null">Shoe Image can\'t be empty</string>
+    <string name="fragment_login">fragment_login</string>
+    <string name="fragment_welcome">fragment_welcome</string>
+    <string name="fragment_instructions">fragment_instructions</string>
+    <string name="fragment_shoes_list">fragment_shoes_list</string>
+    <string name="fragment_shoe_list_detail">fragment_shoe_list_detail</string>
 </resources>
