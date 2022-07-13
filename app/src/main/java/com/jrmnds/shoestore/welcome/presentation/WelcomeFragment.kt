@@ -14,7 +14,7 @@ import com.jrmnds.shoestore.databinding.FragmentWelcomeBinding
 
 class WelcomeFragment : Fragment() {
 
-    private lateinit var welcomeBinding: FragmentWelcomeBinding
+    private lateinit var binding: FragmentWelcomeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,23 +22,23 @@ class WelcomeFragment : Fragment() {
     ): View {
         setBinders(inflater, container)
         buttonListener()
-        return welcomeBinding.root
+        return binding.root
     }
 
     private fun buttonListener() {
-        welcomeBinding.nextButtonId.setOnClickListener {
+        binding.nextButtonId.setOnClickListener {
             findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToInstructionsFragment())
         }
     }
 
     private fun setBinders(inflater: LayoutInflater, container: ViewGroup?) {
-        welcomeBinding = DataBindingUtil.inflate(
+        binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_welcome,
             container,
             false
         )
-        welcomeBinding.lifecycleOwner = this
+        binding.lifecycleOwner = this
         (activity as AppCompatActivity).supportActionBar?.title = "Welcome"
     }
 }

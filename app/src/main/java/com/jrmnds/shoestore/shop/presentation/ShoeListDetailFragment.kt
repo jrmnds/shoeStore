@@ -20,7 +20,7 @@ import com.jrmnds.shoestore.utils.GlideHelper
 
 class ShoeListDetailFragment : Fragment() {
 
-    private lateinit var bindingShoeListDetail: FragmentShoeListDetailBinding
+    private lateinit var binding: FragmentShoeListDetailBinding
     private val shoesListViewModel: ShoesListViewModel by activityViewModels()
 
     private val loadImage = registerForActivityResult(
@@ -37,96 +37,105 @@ class ShoeListDetailFragment : Fragment() {
         getAccess()
         getImage()
         observeFields()
-        return bindingShoeListDetail.root
+        return binding.root
     }
 
     private fun setBinders(inflater: LayoutInflater, container: ViewGroup?) {
-        bindingShoeListDetail = DataBindingUtil.inflate(
+        binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_shoe_list_detail,
             container,
             false
         )
 
-        bindingShoeListDetail.lifecycleOwner = this
-        bindingShoeListDetail.shoeDetailsViewModel = shoesListViewModel
+        binding.lifecycleOwner = this
+        binding.shoeDetailsViewModel = shoesListViewModel
         (activity as AppCompatActivity).supportActionBar?.title = "Add a new Shoe"
     }
 
     private fun observeFields() {
-        shoesListViewModel.notNullNameShoe.observe(viewLifecycleOwner) { shoeName ->
-            when {
-                shoeName.isEmpty() -> {
-                    bindingShoeListDetail.shoeNameLabelId.error =
-                        getString(R.string.shoe_name_not_empty)
-                    bindingShoeListDetail.shoeNameLabelId.requestFocus()
+        with(shoesListViewModel) {
+
+            notNullNameShoe.observe(viewLifecycleOwner) { shoeName ->
+                when {
+                    shoeName.isEmpty() -> {
+                        binding.shoeNameLabelId.error =
+                            getString(R.string.shoe_name_not_empty)
+                        binding.shoeNameLabelId.requestFocus()
+                    }
                 }
             }
-        }
 
-        shoesListViewModel.notNullshoeCompany.observe(viewLifecycleOwner) { shoeCompany ->
-            when {
-                shoeCompany.isEmpty() -> {
-                    bindingShoeListDetail.shoesCompanyLabelId.error =
-                        getString(R.string.shoes_company_not_empty)
-                    bindingShoeListDetail.shoesCompanyLabelId.requestFocus()
+            notNullshoeCompany.observe(viewLifecycleOwner) { shoeCompany ->
+                when {
+                    shoeCompany.isEmpty() -> {
+                        binding.shoesCompanyLabelId.error =
+                            getString(R.string.shoes_company_not_empty)
+                        binding.shoesCompanyLabelId.requestFocus()
+                    }
                 }
             }
-        }
 
-        shoesListViewModel.notNullshoeSize.observe(viewLifecycleOwner) { shoeSize ->
-            when {
-                shoeSize.isEmpty() -> {
-                    bindingShoeListDetail.sizeLabelId.error =
-                        getString(R.string.shoe_size_not_empty)
-                    bindingShoeListDetail.sizeLabelId.requestFocus()
+            notNullshoeSize.observe(viewLifecycleOwner) { shoeSize ->
+                when {
+                    shoeSize.isEmpty() -> {
+                        binding.sizeLabelId.error =
+                            getString(R.string.shoe_size_not_empty)
+                        binding.sizeLabelId.requestFocus()
+                    }
                 }
             }
-        }
 
-        shoesListViewModel.notNullshoeDescription.observe(viewLifecycleOwner) { shoeDescription ->
-            when {
-                shoeDescription.isEmpty() -> {
-                    bindingShoeListDetail.descriptionLabelId.error =
-                        getString(R.string.shoe_description_not_empty)
-                    bindingShoeListDetail.descriptionLabelId.requestFocus()
+            notNullshoeDescription.observe(viewLifecycleOwner) { shoeDescription ->
+                when {
+                    shoeDescription.isEmpty() -> {
+                        binding.descriptionLabelId.error =
+                            getString(R.string.shoe_description_not_empty)
+                        binding.descriptionLabelId.requestFocus()
+                    }
                 }
             }
-        }
 
-        shoesListViewModel.notNullShoeImage.observe(viewLifecycleOwner){ shoeImage ->
-            when{
-                shoeImage.isEmpty() -> {
-                    Toast.makeText(context, getString(R.string.shoe_image_not_null), Toast.LENGTH_SHORT).show()
-                }
-                else -> {
-                    bindingShoeListDetail.shoesImagePreviewId.visibility = View.VISIBLE
-                    GlideHelper.converteFromBase64ToImage(shoeImage, this@ShoeListDetailFragment.context!!, R.drawable.pairshoes,
-                        bindingShoeListDetail.shoesImagePreviewId)
+            notNullShoeImage.observe(viewLifecycleOwner) { shoeImage ->
+                when {
+                    shoeImage.isEmpty() -> {
+                        Toast.makeText(
+                            context,
+                            getString(R.string.shoe_image_not_null),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    else -> {
+                        binding.shoesImagePreviewId.visibility = View.VISIBLE
+                        GlideHelper.converteFromBase64ToImage(
+                            shoeImage, this@ShoeListDetailFragment.context!!, R.drawable.pairshoes,
+                            binding.shoesImagePreviewId
+                        )
+                    }
                 }
             }
-        }
 
-        shoesListViewModel.changeImageStateLabel.observe(viewLifecycleOwner){
-            bindingShoeListDetail.shoesImagePreviewId.visibility = View.GONE
-        }
+            changeImageStateLabel.observe(viewLifecycleOwner) {
+                binding.shoesImagePreviewId.visibility = View.GONE
+            }
 
-        shoesListViewModel.shouldGoToTheNextPage.observe(viewLifecycleOwner) { shouldGoToAnotherPage ->
-            when {
-                shouldGoToAnotherPage -> {
-                    clearFields()
-                    findNavController().navigate(ShoeListDetailFragmentDirections.actionShoeListDetailFragmentToShoesListFragment())
+            shouldGoToTheNextPage.observe(viewLifecycleOwner) { shouldGoToAnotherPage ->
+                when {
+                    shouldGoToAnotherPage -> {
+                        clearFields()
+                        findNavController().navigate(ShoeListDetailFragmentDirections.actionShoeListDetailFragmentToShoesListFragment())
+                    }
                 }
             }
         }
     }
 
     private fun clearFields() {
-        bindingShoeListDetail.shoesImagePreviewId.visibility = View.GONE
-        bindingShoeListDetail.shoeNameLabelId.text.clear()
-        bindingShoeListDetail.shoesCompanyLabelId.text.clear()
-        bindingShoeListDetail.descriptionLabelId.text.clear()
-        bindingShoeListDetail.sizeLabelId.text.clear()
+        binding.shoesImagePreviewId.visibility = View.GONE
+        binding.shoeNameLabelId.text.clear()
+        binding.shoesCompanyLabelId.text.clear()
+        binding.descriptionLabelId.text.clear()
+        binding.sizeLabelId.text.clear()
     }
 
     private fun getAccess() {
@@ -143,7 +152,7 @@ class ShoeListDetailFragment : Fragment() {
     }
 
     private fun getImage() {
-        bindingShoeListDetail.addImageButtonId.setOnClickListener {
+        binding.addImageButtonId.setOnClickListener {
             loadImage.launch("image/*")
         }
     }

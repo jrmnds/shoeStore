@@ -5,6 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".welcome.presentation.WelcomeFragment">
 
+    <!--    LinearLayout was chosen because it's a simple screen, with linear information. Didn't felt like i would need-->
+    <!--    a ConstraintLayout, ConstraintLayout is better if you have a complex screen with many more components.-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,12 +17,12 @@
         <ImageView
             android:id="@+id/imageIconView"
             app:srcCompat="@drawable/pairshoes"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="@dimen/dimen_200dp"
+            android:layout_height="@dimen/dimen_200dp"
             android:layout_marginTop="@dimen/space_beetwen"
             android:background="@drawable/shape"
             android:contentDescription="@string/image_of_a_shoe"
-            android:elevation="50dp"
+            android:elevation="@dimen/dimen_50dp"
             android:foregroundGravity="center_horizontal" />
 
 
@@ -28,7 +30,7 @@
             android:id="@+id/welcome_introduction_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="@dimen/dimen_50dp"
             android:text="@string/welcome_introduction"
             style="@style/text_information_style" />
 
