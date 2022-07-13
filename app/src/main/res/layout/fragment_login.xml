@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.jrmnds.shoestore.login.presentation.LoginFragment">
 
+    <!--    LinearLayout was chosen because it's a simple screen, with linear information. Didn't felt like i would need-->
+    <!--    a ConstraintLayout, ConstraintLayout is better if you have a complex screen with many more components.-->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -13,10 +16,10 @@
             android:id="@+id/imageIconView"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="@dimen/dimen_32dp"
             android:background="@drawable/shape"
             android:contentDescription="@string/image_of_a_shoe"
-            android:elevation="50dp"
+            android:elevation="@dimen/dimen_50dp"
             android:foregroundGravity="center_horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +34,7 @@
             android:fontFamily="@font/roboto"
             android:text="@string/the_shoe_store"
             android:textAlignment="center"
-            android:textSize="24sp"
+            android:textSize="@dimen/dimen_24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,9 +44,9 @@
             android:id="@+id/emailId"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="@dimen/dimen_16dp"
+            android:layout_marginTop="@dimen/dimen_100dp"
+            android:layout_marginEnd="@dimen/dimen_16dp"
             android:fontFamily="@font/roboto"
             android:ems="10"
             android:hint="@string/type_your_email"
@@ -60,9 +63,9 @@
             android:id="@+id/passwordId"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="@dimen/dimen_16dp"
+            android:layout_marginTop="@dimen/dimen_24dp"
+            android:layout_marginEnd="@dimen/dimen_16dp"
             android:ems="10"
             android:hint="@string/type_your_password"
             android:importantForAutofill="no"
@@ -77,8 +80,8 @@
         <Button
             android:id="@+id/loginButton"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_marginTop="32dp"
+            android:layout_height="@dimen/dimen_60dp"
+            android:layout_marginTop="@dimen/dimen_32dp"
             android:text="@string/login"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -89,8 +92,8 @@
         <Button
             android:id="@+id/createAccountButtonId"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_marginTop="32dp"
+            android:layout_height="@dimen/dimen_60dp"
+            android:layout_marginTop="@dimen/dimen_32dp"
             android:text="@string/create_account"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/loginButton"

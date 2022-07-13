@@ -4,6 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".shop.presentation.ShoesListFragment">
 
+
+<!--    ConstraintLayout was chosen because here i needed to put a floatButton, with Constraint Layout i could do it -->
+<!--    without any trouble, just setting the position i needed.-->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -24,8 +28,8 @@
             android:id="@+id/floating_action_button_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="@dimen/dimen_16dp"
+            android:layout_marginBottom="@dimen/dimen_16dp"
             android:clickable="true"
             android:src="@drawable/ic_baseline_add_24"
             app:layout_constraintBottom_toBottomOf="parent"

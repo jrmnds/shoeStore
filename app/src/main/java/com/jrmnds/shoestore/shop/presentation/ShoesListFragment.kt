@@ -14,12 +14,11 @@ import com.jrmnds.shoestore.R
 import com.jrmnds.shoestore.databinding.FragmentShoesListBinding
 import com.jrmnds.shoestore.databinding.ShoeListCardBinding
 import com.jrmnds.shoestore.shop.model.Shoe
-import com.jrmnds.shoestore.utils.Base64ExampleImage
 import com.jrmnds.shoestore.utils.GlideHelper
 
 class ShoesListFragment : Fragment() {
 
-    private lateinit var shoesListBinding: FragmentShoesListBinding
+    private lateinit var binding: FragmentShoesListBinding
     private val shoesListViewModel: ShoesListViewModel by activityViewModels()
     private lateinit var shoeCardListItem: ShoeListCardBinding
     private lateinit var configureIntent: Intent
@@ -34,7 +33,7 @@ class ShoesListFragment : Fragment() {
         setObservers()
         configureNotPopCallBack()
         setHasOptionsMenu(true)
-        return shoesListBinding.root
+        return binding.root
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -50,14 +49,14 @@ class ShoesListFragment : Fragment() {
     }
 
     private fun setBinders(inflater: LayoutInflater, container: ViewGroup?) {
-        shoesListBinding = DataBindingUtil.inflate(
+        binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_shoes_list,
             container,
             false
         )
         (activity as AppCompatActivity).supportActionBar?.title = "Shoes List"
-        shoesListBinding.lifecycleOwner = this
+        binding.lifecycleOwner = this
     }
 
     private fun setObservers() {
@@ -68,7 +67,7 @@ class ShoesListFragment : Fragment() {
             }
         }
 
-        shoesListBinding.floatingActionButtonId.setOnClickListener {
+        binding.floatingActionButtonId.setOnClickListener {
             findNavController().navigate(ShoesListFragmentDirections.actionShoesListFragmentToShoeListDetailFragment())
         }
     }
@@ -84,7 +83,7 @@ class ShoesListFragment : Fragment() {
             companyIdInformation.text = shoeData.company
             descriptionIdInformation.text = shoeData.description
         }
-        shoesListBinding.shoesLinearViewId.addView(shoeCardListItem.root)
+        binding.shoesLinearViewId.addView(shoeCardListItem.root)
     }
 
     private fun configureNotPopCallBack() {
